@@ -1,0 +1,24 @@
+{
+  "name": "Social Post AI",
+  "short_name": "Social Post AI",
+  "description": "Create Instagram posts, captions, image concepts, videos and Reels with AI.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f6f1e8",
+  "theme_color": "#ff6b4a",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
