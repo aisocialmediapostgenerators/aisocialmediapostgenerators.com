@@ -17,8 +17,15 @@
 ## Company
 
 - [About](https://aisocialmediapostgenerators.com/about/)
-- [Terms of Use](https://aisocialmediapostgenerators.com/terms/)
-- [Refund Policy](https://aisocialmediapostgenerators.com/refund/)
+- [Contact](https://aisocialmediapostgenerators.com/contact/)
+- [Editorial Policy](https://aisocialmediapostgenerators.com/editorial-policy/)
+- [AI Content Policy](https://aisocialmediapostgenerators.com/ai-content-policy/)
+- [Privacy Policy](https://aisocialmediapostgenerators.com/privacy-policy/)
+- [Terms of Service](https://aisocialmediapostgenerators.com/terms-of-service/)
+- [Pricing](https://aisocialmediapostgenerators.com/pricing/)
+- [Refund Policy](https://aisocialmediapostgenerators.com/refund-policy/)
+- [Security](https://aisocialmediapostgenerators.com/security/)
+- [Author and Team](https://aisocialmediapostgenerators.com/author-team/)
 - Contact: hi@aisocialmediapostgenerators.com
 
 All generator pages are free to try without sign-up. Generated content should be reviewed and adapted before publication.
