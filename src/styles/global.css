@@ -8,7 +8,7 @@ button, select { cursor:pointer; }
 .shell { width:min(1180px, calc(100% - 40px)); margin-inline:auto; }
 .nav { height:84px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); }
 .brand { display:flex; align-items:center; gap:10px; font-weight:850; letter-spacing:-.04em; font-size:20px; }
-.brand-mark { width:30px; height:30px; display:grid; place-items:center; border:1.5px solid var(--ink); border-radius:50%; background:var(--lime); }
+.brand-icon { width:32px; height:32px; display:block; flex:0 0 auto; border:1.5px solid var(--ink); border-radius:8px; object-fit:cover; }
 .sparkle { display:inline-block; transform:translateY(-1px); }
 .sparkle.small { font-size:.86em; }
 .nav-links { display:flex; gap:34px; font-size:14px; font-weight:650; }
@@ -78,7 +78,7 @@ h1,h2,h3,p { margin-top:0; }
 .faq details p { color:#5c6b63; line-height:1.6; max-width:620px; margin:18px 0 0; }
 footer { background:var(--ink); color:var(--paper); padding:70px 0 25px; }
 .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr; gap:60px; }
-.light-brand .brand-mark { border-color:var(--paper); color:var(--ink); }
+.light-brand .brand-icon { border-color:var(--paper); }
 .footer-top p { color:#adbbb2; line-height:1.6; margin-top:22px; }
 .footer-top > div:not(:first-child) { display:flex; flex-direction:column; gap:13px; font-size:13px; }
 .footer-top b { color:var(--lime); margin-bottom:8px; }
