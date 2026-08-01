@@ -43,11 +43,29 @@ Title、H1 和页面功能保持一致
 页面提供 Breadcrumb 和相关工具链接
 控制 Core Web Vitals，尤其是首屏生成器造成的 LCP 和 CLS
 多语言版本上线时使用独立 URL 与 hreflang，默认是en语言
-包含about、terms、refund等 EEAT page
+
+### E-E-A-T page 丰富一些，800字左右
+包含 如下：
+About
+Contact
+Editorial Policy
+AI Content Policy
+Privacy Policy
+Terms of Service
+Pricing
+Refund Policy
+Security
+Author/Team
+
 
 给我各个页面的slug、TDH 和布局说明
 
-关于我们联系邮箱：hi@aisocialmediapostgenerators.com
+生成 llms.txt
+
+在robots txt 里面添加llms.txt 和 sitemap.xml的路径
+
+关于我们联系添加邮箱：hi@aisocialmediapostgenerators.com
+
 
 第一版，先做个ASTRO静态页面结构, 部署在Cloudflare
 www.aisocialmediapostgenerators.com  301 https://aisocialmediapostgenerators.com
