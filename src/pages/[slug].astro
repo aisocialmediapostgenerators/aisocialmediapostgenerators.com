@@ -1,0 +1,9 @@
+---
+import SitePage from "../components/SitePage.astro";
+import CompanyPage from "../components/CompanyPage.astro";
+import { toolList } from "../data/site-data";
+import { companyPageList } from "../data/company-pages";
+export function getStaticPaths() { return [...toolList.map((tool) => ({ params: { slug: tool.slug }, props: { tool } })), ...companyPageList.map((page) => ({ params: { slug: page.slug }, props: { page } }))]; }
+const { tool, page } = Astro.props;
+---
+{tool ? <SitePage tool={tool} /> : <CompanyPage page={page} />}

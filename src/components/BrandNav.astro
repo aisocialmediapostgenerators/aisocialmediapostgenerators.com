@@ -1,0 +1,8 @@
+---
+interface Props { back?: boolean }
+const { back = false } = Astro.props;
+---
+<nav class="nav shell" aria-label="Main navigation">
+  <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">✦</span> Social Post AI</a>
+  {back ? <a class="nav-cta" href="/">Back home <span>↗</span></a> : <><div class="nav-links"><a href="#examples">Examples</a><a href="#how">How it works</a><a href="#faq">FAQ</a></div><a class="nav-cta" href="#generator">Try it free <span>↗</span></a></>}
+</nav>

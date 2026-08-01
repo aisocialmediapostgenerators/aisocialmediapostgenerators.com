@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BrandNav from "./BrandNav.astro";
+import { toolList, type Tool } from "../data/site-data";
+interface Props { tool: Tool }
+const { tool } = Astro.props;
+const title = tool.key === "home" ? "Social Post AI" : `Free ${tool.shortTitle}`;
+const canonical = tool.slug ? `/${tool.slug}/` : "/";
+---
+<BaseLayout title={title} description={tool.description} canonical={canonical}>
+  <main data-generator data-tool-key={tool.key}>
+    <BrandNav />
+    <section class="hero shell">
+      <div class="hero-copy"><div class="eyebrow"><span class="sparkle small" aria-hidden="true">✦</span> {tool.eyebrow}</div><h1>{tool.title}</h1><p class="hero-description">{tool.description}</p><div class="proof-row"><span>✓ Free to try</span><span>✓ No sign-up</span><span>✓ Ready in seconds</span></div></div>
+      <div class="generator" id="generator">
+        <div class="generator-top"><span class="window-dots">● ● ●</span><span>Social Post AI studio</span><span class="status">Online</span></div>
+        <div class="generator-body"><label for="idea">{tool.promptLabel}</label><textarea id="idea" placeholder={tool.placeholder}></textarea><div class="field-row"><div><label for="tone">Tone</label><select id="tone"><option>Warm & human</option><option>Bold & playful</option><option>Polished & expert</option><option>Calm & minimal</option></select></div><div><label for="platform">Platform</label><select id="platform"><option>Instagram</option></select></div></div><button class="generate-button" type="button"><span class="sparkle small" aria-hidden="true">✦</span> {tool.button}<span>→</span></button></div>
+        <div class="result" hidden aria-live="polite"><div class="result-heading"><strong>{tool.resultLabel}</strong><button class="copy-button" type="button">Copy</button></div><pre></pre></div><div class="generator-foot"><span><span class="sparkle small" aria-hidden="true">✦</span> Built for better first drafts</span><span>⌘ Enter</span></div>
+      </div>
+    </section>
+    <section class="marquee" aria-label="Capabilities"><div>POSTS <span class="sparkle small">✦</span> CAPTIONS <span class="sparkle small">✦</span> IMAGE CONCEPTS <span class="sparkle small">✦</span> REELS <span class="sparkle small">✦</span> SHORT VIDEOS <span class="sparkle small">✦</span> BRAND VOICE</div></section>
+    <section class="section shell" id="examples"><div class="section-heading"><div><span class="kicker">REAL-WORLD STARTING POINTS</span><h2>From “what do I say?”<br />to “that’s exactly it.”</h2></div><p>Strong examples make strong prompts. Explore six ways Social Post AI turns everyday briefs into content with a point of view.</p></div><div class="example-grid">{tool.examples.map((example, index) => <article class={`example-card card-${index + 1}`}><div class="example-number">0{index + 1}</div><span>{example.tag}</span><h3>{example.title}</h3><p>{example.copy}</p><button class="example-button" type="button" data-prompt={`${example.tag}: ${example.title}`}>Try this direction →</button></article>)}</div></section>
+    <section class="how" id="how"><div class="shell"><span class="kicker light">A SIMPLER CREATIVE RHYTHM</span><h2>One idea. Three small steps.<br />A post you’re proud to publish.</h2><div class="steps"><article><b>01</b><h3>Share the spark</h3><p>Give us the topic, product or moment. A rough sentence is plenty.</p></article><article><b>02</b><h3>Shape the voice</h3><p>Choose a tone that fits your audience and the feeling you want to leave.</p></article><article><b>03</b><h3>Make it yours</h3><p>Copy the draft, add your details and publish when it sounds just right.</p></article></div></div></section>
+    <section class="tool-links shell"><span class="kicker">EXPLORE THE TOOLKIT</span><h2>More ways to make the feed yours.</h2><div>{toolList.map((item) => <a class={item.key === tool.key ? "active" : ""} href={`/${item.slug}/`}><span>{item.shortTitle}</span><b>↗</b></a>)}</div></section>
+    <section class="faq shell" id="faq"><div><span class="kicker">GOOD TO KNOW</span><h2>Questions,<br />answered simply.</h2></div><div>{tool.faq.map((item) => <details><summary>{item.q}<span>+</span></summary><p>{item.a}</p></details>)}</div></section>
+    <footer><div class="shell footer-top"><div><a class="brand light-brand" href="/"><span class="brand-mark">✦</span> Social Post AI</a><p>Better words. Brighter ideas.<br />Less time staring at a blank box.</p></div><div><b>Trust</b><a href="/about/">About</a><a href="/author-team/">Author & Team</a><a href="/editorial-policy/">Editorial Policy</a><a href="/ai-content-policy/">AI Content Policy</a><a href="/security/">Security</a></div><div><b>Company</b><a href="/contact/">Contact</a><a href="/pricing/">Pricing</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms-of-service/">Terms of Service</a><a href="/refund-policy/">Refund Policy</a></div></div><div class="shell footer-bottom"><span>© 2026 Social Post AI</span><span>Made for people with something to say.</span></div></footer>
+  </main>
+  <script>
+    const root = document.querySelector<HTMLElement>("[data-generator]");
+    const idea = document.querySelector<HTMLTextAreaElement>("#idea");
+    const tone = document.querySelector<HTMLSelectElement>("#tone");
+    const result = document.querySelector<HTMLElement>(".result");
+    const output = result?.querySelector("pre");
+    const generateButton = document.querySelector<HTMLButtonElement>(".generate-button");
+    const copyButton = document.querySelector<HTMLButtonElement>(".copy-button");
+    function makeResult() { const kind = root?.dataset.toolKey ?? "home"; const subject = idea?.value.trim() || "your next big idea"; const selectedTone = tone?.value.toLowerCase() || "warm & human"; if (kind === "image") return `ART DIRECTION\n\nA warm, editorial Instagram image focused on ${subject}. Natural side light, tactile details, generous negative space, subtle grain, and one confident accent color. Shot at eye level in a 4:5 composition. Premium but approachable; real rather than over-polished.\n\nPalette: oat, ink, sunlit coral.\nMood: ${selectedTone}, modern, quietly optimistic.`; if (kind === "video" || kind === "reels") return `HOOK · 0–2 sec\n“Here’s the part nobody tells you about ${subject}.”\n\nBEAT 1 · Show the familiar problem in one tight visual.\nBEAT 2 · Reveal the simple shift or solution.\nBEAT 3 · Show the payoff with a clear before/after.\n\nON-SCREEN TEXT\nSmall change. Noticeable difference.\n\nCTA\nSave this for the moment you need it—and send it to someone who gets it.`; return `A small idea can change the whole rhythm of your day. ✨\n\nHere’s what we’re sharing about ${subject}: thoughtful details, less friction, and more room for what matters. Made for real life, not just the highlight reel.\n\nWhat would you try first? Tell us below.\n\n#SocialMediaIdeas #CreativeBusiness #MadeWithCare #InstagramTips`; }
+    function generate() { if (!result || !output) return; output.textContent = makeResult(); result.hidden = false; if (copyButton) copyButton.textContent = "Copy"; }
+    generateButton?.addEventListener("click", generate); idea?.addEventListener("keydown", (event) => { if ((event.metaKey || event.ctrlKey) && event.key === "Enter") generate(); }); copyButton?.addEventListener("click", async () => { if (!output?.textContent) return; await navigator.clipboard.writeText(output.textContent); copyButton.textContent = "Copied!"; }); document.querySelectorAll<HTMLButtonElement>(".example-button").forEach((button) => button.addEventListener("click", () => { if (idea) idea.value = button.dataset.prompt ?? ""; document.querySelector("#generator")?.scrollIntoView({ behavior: "smooth" }); }));
+  </script>
+</BaseLayout>

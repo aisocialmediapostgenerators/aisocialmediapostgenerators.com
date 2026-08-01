@@ -1,0 +1,8 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BrandNav from "./BrandNav.astro";
+import { companyPageList, type CompanyPage } from "../data/company-pages";
+interface Props { page: CompanyPage }
+const { page } = Astro.props;
+---
+<BaseLayout title={page.title} description={page.description} canonical={`/${page.slug}/`}><main class="legal"><BrandNav back /><header class="legal-hero shell"><div><span class="kicker">{page.eyebrow}</span><h1>{page.title}</h1><p class="legal-intro">{page.description}</p><p class="updated">Last updated: {page.updated} · By the Social Post AI Editorial Team</p></div><aside aria-label="On this page"><b>On this page</b>{page.sections.map((section, index) => <a href={`#section-${index + 1}`}>{section.heading}</a>)}</aside></header><article class="legal-content shell"><div class="legal-main">{page.sections.map((section, index) => <section id={`section-${index + 1}`}><span class="section-index">0{index + 1}</span><h2>{section.heading}</h2>{section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}{section.bullets && <ul>{section.bullets.map((bullet) => <li>{bullet}</li>)}</ul>}</section>)}</div><aside class="policy-links"><b>Trust & company</b>{companyPageList.map((item) => <a class={item.slug === page.slug ? "active" : ""} href={`/${item.slug}/`}>{item.title}<span>↗</span></a>)}</aside></article><footer class="legal-footer"><div class="shell"><p>Still have a question?</p><a href="mailto:hi@aisocialmediapostgenerators.com">hi@aisocialmediapostgenerators.com ↗</a></div></footer></main></BaseLayout>

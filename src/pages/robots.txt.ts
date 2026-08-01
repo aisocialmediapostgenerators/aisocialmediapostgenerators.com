@@ -1,0 +1,2 @@
+import type { APIRoute } from "astro";
+export const GET: APIRoute = () => new Response(["User-agent: *", "Allow: /", "Disallow: /result/", "Disallow: /*?*", "", "Sitemap: https://aisocialmediapostgenerators.com/sitemap.xml", "LLMs-Txt: https://aisocialmediapostgenerators.com/llms.txt", "Host: https://aisocialmediapostgenerators.com", ""].join("\n"), { headers: { "Content-Type": "text/plain; charset=utf-8" } });

@@ -1,0 +1,4 @@
+import type { APIRoute } from "astro";
+import { toolList } from "../data/site-data";
+import { companyPageList } from "../data/company-pages";
+export const GET: APIRoute = () => { const base = "https://aisocialmediapostgenerators.com"; const urls = [{ path: "/", priority: "1.0", frequency: "weekly" }, ...toolList.map((tool) => ({ path: `/${tool.slug}/`, priority: "0.9", frequency: "weekly" })), ...companyPageList.map((page) => ({ path: `/${page.slug}/`, priority: "0.5", frequency: "monthly" }))]; const body = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((url) => `  <url><loc>${base}${url.path}</loc><changefreq>${url.frequency}</changefreq><priority>${url.priority}</priority></url>`).join("\n")}\n</urlset>\n`; return new Response(body, { headers: { "Content-Type": "application/xml; charset=utf-8" } }); };
