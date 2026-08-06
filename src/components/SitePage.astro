@@ -6,8 +6,58 @@ interface Props { tool: Tool }
 const { tool } = Astro.props;
 const title = tool.key === "home" ? "Social Post AI" : `Free ${tool.shortTitle}`;
 const canonical = tool.slug ? `/${tool.slug}/` : "/";
+const pageUrl = new URL(canonical, Astro.site).href;
+const siteUrl = new URL("/", Astro.site).href;
+const structuredData = [
+  {
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: title,
+    description: tool.description,
+    isPartOf: { "@id": `${siteUrl}#website` },
+    about: { "@id": `${pageUrl}#webapp` },
+    inLanguage: "en",
+  },
+  {
+    "@type": "WebApplication",
+    "@id": `${pageUrl}#webapp`,
+    name: tool.shortTitle,
+    url: pageUrl,
+    description: tool.description,
+    applicationCategory: "BusinessApplication",
+    applicationSubCategory: "Social media content creation",
+    operatingSystem: "Any",
+    browserRequirements: "Requires JavaScript and an HTML5-compatible browser.",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    provider: { "@id": `${siteUrl}#organization` },
+  },
+  {
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    mainEntity: tool.faq.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  },
+  ...(tool.slug
+    ? [{
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+          { "@type": "ListItem", position: 2, name: tool.shortTitle, item: pageUrl },
+        ],
+      }]
+    : []),
+];
 ---
-<BaseLayout title={title} description={tool.description} canonical={canonical}>
+<BaseLayout title={title} description={tool.description} canonical={canonical} structuredData={structuredData}>
   <main data-generator data-tool-key={tool.key}>
     <BrandNav />
     <section class="hero shell">
