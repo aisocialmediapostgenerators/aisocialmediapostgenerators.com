@@ -32,11 +32,19 @@ const examples = [
 
 export const tools: Record<ToolKey, Tool> = {
   home: {
-    key: "home", slug: "", eyebrow: "Your always-on creative partner",
-    title: "Turn one idea into a post people stop for.", shortTitle: "AI Social Media Post Generator",
-    description: "Write on-brand captions, shape visual concepts and plan short-form video—without the blank page.",
+    key: "home", slug: "", eyebrow: "Free AI social media post generator",
+    title: "AI Social Media Post Generator for Faster First Drafts", shortTitle: "AI Social Media Post Generator",
+    description: "Use our free AI social media post generator to create editable captions, post ideas, hooks and hashtags for Instagram from a simple brief.",
     promptLabel: "What do you want to share?", placeholder: "e.g. Launching a sustainable travel mug for busy commuters…",
-    button: "Generate my post", resultLabel: "Your post is ready", examples, faq: sharedFaq,
+    button: "Generate a free post", resultLabel: "Your post is ready", examples,
+    faq: [
+      { q: "What is an AI social media post generator?", a: "It is a writing tool that turns a short brief into a social post draft. Social Post AI creates an editable caption, hook, call to action and suggested hashtags in your browser." },
+      { q: "Is this AI social media post generator free?", a: "Yes. You can generate a first draft without creating an account or entering a credit card." },
+      { q: "Which social media platforms does it support?", a: "The current homepage generator is designed for Instagram-style posts. Our related tools also help plan Instagram captions, images, videos and Reels." },
+      { q: "Can I use the generated post without editing it?", a: "You can, but reviewing the draft is recommended. Add accurate product details, check claims, and adjust the wording so it matches your brand voice and audience." },
+      { q: "Does the tool publish posts to my account?", a: "No. It creates copy you can review and copy; it does not connect to or publish on your social accounts." },
+      { q: "How do I get a better social media post?", a: "Include the audience, offer, desired tone and one specific detail in your brief. The more concrete the input, the more useful the first draft will be." },
+    ],
   },
   post: {
     key: "post", slug: "ai-instagram-post-generator", eyebrow: "AI Instagram Post Generator",
