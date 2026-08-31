@@ -48,10 +48,18 @@ export const tools: Record<ToolKey, Tool> = {
   },
   post: {
     key: "post", slug: "ai-instagram-post-generator", eyebrow: "AI Instagram Post Generator",
-    title: "Instagram posts that sound like you—on your best day.", shortTitle: "Instagram Post Generator",
-    description: "Turn a rough idea into a polished Instagram post with a strong hook, natural caption and relevant hashtags.",
+    title: "AI Instagram Post Generator for Editable Captions", shortTitle: "AI Instagram Post Generator",
+    description: "Create an editable Instagram post draft from a simple brief, with a hook, natural caption, call to action and suggested hashtags.",
     promptLabel: "Describe your Instagram post", placeholder: "e.g. Announce our bakery’s new Saturday brunch menu…",
-    button: "Generate Instagram post", resultLabel: "Your Instagram post", examples, faq: sharedFaq,
+    button: "Generate Instagram post", resultLabel: "Your Instagram post", examples,
+    faq: [
+      { q: "What does the AI Instagram post generator create?", a: "It creates an editable Instagram-style caption with an opening hook, body copy, a call to action and suggested hashtags based on your brief." },
+      { q: "Is the Instagram post generator free to try?", a: "Yes. You can create a draft on this page without signing up or entering payment details." },
+      { q: "What should I enter in the prompt?", a: "Describe the product, event, idea or update, then add the intended audience and one concrete detail. Choose a tone that fits how your brand normally speaks." },
+      { q: "Can this tool publish directly to Instagram?", a: "No. The generator produces text for you to review and copy. It does not connect to, schedule or publish on your Instagram account." },
+      { q: "Does it generate an Instagram image too?", a: "This page generates post copy, not an image file. Use the related Instagram image generator to create a detailed visual concept and art-direction prompt." },
+      { q: "Should I review the generated caption?", a: "Yes. Verify product facts and claims, replace generic details, refine hashtags and make sure the final caption matches your brand voice before publishing." },
+    ],
   },
   image: {
     key: "image", slug: "ai-instagram-image-generator", eyebrow: "AI Instagram Image Generator",
